@@ -1,11 +1,11 @@
-# JS Applicants Tasks
+# Applicants Tasks (JavaScript)
 
 
 
 ## Goals
 
 
-This project aims to test the knowledge and skill level of the applicant for the position of **Junior JavaScript/NodeJS** developer in [ScrapeIt.io](https://scrapeit.io).
+This project aims to test the knowledge and skill level of the applicant for the position of **Junior JavaScript developer** at [ScrapeIt.io](https://scrapeit.io).
 
 
 ## How to pass the challenge
@@ -32,7 +32,7 @@ npm run lint
 ```
 
 - [ ] Commit your changes and push them into Gitlab
-- [ ] Provide your repository link to your code reviewer in ScrapeIt.io. 
+- [ ] Provide your repository link to your code reviewer at ScrapeIt.io. 
 
 ## Complexity Level
 
