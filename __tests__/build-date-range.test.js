@@ -1,6 +1,6 @@
 const { expect, test } = require('@jest/globals');
 const _ = require('lodash');
-const { buildDateRange } = require('../src/tasks/build-date-range');
+const buildDateRange = require('../src/tasks/build-date-range');
 
 const gapInDays = 3;
 const dayInMilliSeconds = 8.64e7;
@@ -13,5 +13,5 @@ const expected = {
 };
 
 test('build date range', () => {
-  expect(buildDateRange(gapInDays)).toEqual(expected);
+  expect(buildDateRange).toEqual(expected);
 });

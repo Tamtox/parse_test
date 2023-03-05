@@ -1,20 +1,22 @@
-const _ = require('lodash');
+// const _ = require('lodash');
 
 /**
- * Normalize the source string by removing malicious symbols
+ * The function 'normalizeTitle' takes a single parameter 'title',
+ * the string value, taken from booking.com and modified with several malicious symbols,
+ * such as '\n', '\t', '\' and double spaces.
  *
- * @param  - The string with malicious symbols
- * @return - Normalized human readable string
+ * The function should remove all malicious symbols,
+ * and return the normalized string as shown below.
  *
  * Expected result: 'Treasure Island - TI Las Vegas Hotel & Casino, a Radisson Hotel'
  *
- * You can, but not required to use 'lodash'
+ * You can, but are not required to us~nr e 'lodash'
  */
 
-const title = '  \t Treasure  Island\t\n - \n TI Las Vegas Hotel \\ &  Casino,\n a\t Radisson \\  Hotel\t\n';
+const title = '  \t Treasure  Island\t\n - \n  TI Las Vegas Hotel \\ &  Casino,\n a\t Radisson \\  Hotel\t\n';
 
 const normalizeTitle = (str) => {
-  // your solution here
+  // put your code here
 };
 
 module.exports = normalizeTitle(title);

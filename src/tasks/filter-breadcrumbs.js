@@ -1,11 +1,13 @@
-const _ = require('lodash');
+// const _ = require('lodash');
 
 /**
- * Filter nested arrays by their uniq content
- *
- * @breadcrumbs - Source Array to be handled
- * @return - The Array with some nested arrays,
- * incliding uniq set of content and sorted by those sets
+ * The function 'filterBreadcrumbs' takes a single parameter 'breadcrumbs',
+ * including an array of arrays, scraped from misumi.com.
+ * Each nested array includes several string values from website breadcrumbs chains.
+ * Some of them are duplicates.
+ * The function should return an array with filtered nested arrays,
+ * which includes only a unique set of breadcrumbs.
+ * Sort the nested arrays, as it shown below.
  *
  * Expected result:
  * [
@@ -15,7 +17,7 @@ const _ = require('lodash');
  *   ['Adhesives', 'Putties', 'Putty']
  * ]
  *
- * You can, but not required to use 'lodash'
+ * You can, but are not required to use 'lodash' methods
  */
 
 const breadcrumbs = [
@@ -23,13 +25,13 @@ const breadcrumbs = [
   ['Adhesives', 'Putties', 'Putty'],
   ['Adhesives', 'Putties', 'Adhesive Putty'],
   ['Adhesives', 'Putties', 'Epoxy Putty'],
-  ['Adhesives', 'Putties', 'Adhesive Putty'],
+  ['Adhesives', 'Putties', 'Epoxy Putty'],
   ['Adhesives', 'Putties', 'Putty'],
   ['Adhesives', 'Putties'],
 ];
 
-const filterBreadcrumbs = () => {
-  // your solution here
+const filterBreadcrumbs = (breadCrumbs) => {
+  // put your code here
 };
 
-module.exports = { filterBreadcrumbs };
+module.exports = filterBreadcrumbs(breadcrumbs);

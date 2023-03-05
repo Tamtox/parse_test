@@ -1,16 +1,30 @@
-const _ = require('lodash');
+// const _ = require('lodash');
+const fs = require('fs');
+const cheerio = require('cheerio');
+
+const nodeTree = cheerio.load(fs.readFileSync('./__fixtures__/table.html', 'utf-8'));
 
 /**
- * Parse the html layout and build the array of objects with table headers as 'keys',
- * and table text parameters as 'values'
+ * The 'parseTable' function takes a single parameter '$',
+ * which is a special Cheerio object.
+ * This object contains a tree of nodes from the html layout,
+ * which you can find along the path './__fixtures__/table.html'.
  *
- * @param Cheerio Node object
- * @return object - The array of object
+ * You can find the source of that html layout here:
+ * https://www.gojep.gov.jm/epps/cft/prepareViewCfTWS.do?resourceId=3053856
+ *
+ * The function should parse the table and get all text values from it.
+ * The expeted result is an array of object, included two properties:
+ * 'key' (text from 'dt' tags), and 'value' (text from 'dd' tags), see it below.
+ * You shall normalize the string values by removing unuseful symbols,
+ * such as ':', '\n', ect.
+ * Pay attention of the property 'PPC-NCC Categories', because it should contain
+ * an array of two values.
  *
  * Expected result:
  * [
  *   { key: 'Bid submission deadline in (days/hours)', value: '27/23' },
- *   { key: 'Name of procuring entity', value: [] },
+ *   { key: 'Name of procuring entity', value: 'Southern Regional Health Authority' },
  *   { key: 'Title', value: 'Private Security Services for Health Facilities' },
  *   { key: 'Competition unique ID', value: '1203/275' },
  *   { key: 'Evaluation Mechanism', value: 'LCS' },
@@ -35,7 +49,7 @@ const _ = require('lodash');
  */
 
 const parseTable = ($) => {
-  // your solution here
+  // put your code here
 };
 
-module.exports = { parseTable };
+module.exports = parseTable(nodeTree);

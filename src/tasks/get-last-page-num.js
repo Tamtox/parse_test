@@ -1,20 +1,19 @@
-const _ = require('lodash');
+// const _ = require('lodash');
 
 /**
- * Get the last page number from array of string values
- * 
- * @paginationTexts - Source array to be handled 
- * @return - The last integer number from the Array
+ * The function 'getLastPageNum' takes a single parameter 'paginationText' -
+ * the array of text values scraped from pagination block on amazon.de.
  *
+ * The function should return the number of the last page in integer format.
  * Expected result: 42
  *
- * You can, but not required to use 'lodash'
+ * You can, but are not required to use 'lodash'
  */
 
-const paginationTexts = ['Zurück', '1', '2', '3', '...', '42', 'Weiter'];
+const paginationText = ['Zurück', '1', '2', '3', '...', '42', 'Weiter'];
 
-const getLastPageNum = () => {
-  // your solution here
+const getLastPageNum = (texts) => {
+  // put your code here
 };
 
-module.exports = { getLastPageNum };
+module.exports = getLastPageNum(paginationText);

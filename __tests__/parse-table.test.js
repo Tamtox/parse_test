@@ -1,13 +1,9 @@
 const { expect, test } = require('@jest/globals');
-const cheerio = require('cheerio');
-const fs = require('fs');
-const { parseTable } = require('../src/tasks/parse-table');
-
-const $ = cheerio.load(fs.readFileSync('./__fixtures__/table.html', 'utf-8'));
+const parseTable = require('../src/tasks/parse-table');
 
 const expected = [
   { key: 'Bid submission deadline in (days/hours)', value: '27/23' },
-  { key: 'Name of procuring entity', value: [] },
+  { key: 'Name of procuring entity', value: 'Southern Regional Health Authority' },
   { key: 'Title', value: 'Private Security Services for Health Facilities' },
   { key: 'Competition unique ID', value: '1203/275' },
   { key: 'Evaluation Mechanism', value: 'LCS' },
@@ -26,5 +22,5 @@ const expected = [
 ];
 
 test('parse the html table', () => {
-  expect(parseTable($)).toEqual(expected);
+  expect(parseTable).toEqual(expected);
 });

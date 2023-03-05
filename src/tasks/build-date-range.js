@@ -1,25 +1,28 @@
 const moment = require('moment');
 
 /**
- * Build dynamically calculated dates,
- * the first of which indicates the current day,
- * and the second one is separated from it by a specified number of days.
- *
- * @param number - The quantity of days to go back from the current date
- * @return object - The object with two properties: 'today', 'previous'
- 
- * !!! You shall use the methods of the 'momentjs' to manipulate the dates:
- * https://momentjs.com/docs/
+ * The function 'buildDateRange' takes a single parameter 'gapInDays',
+ * showing the difference in days and should create two dates.
+ * The first date is the current date of the function invoking.
+ * The second date is the one that is in the past by the difference in days.
+ * The function returns an object with two properties 'today' and 'previous'.
+ * See the expected result below.
  *
  * Example of result:
  * {
  *   today: '2023-03-04'    // it's the current date
- *   previous: '2023-03-01' // date in the past, if the gap is 3 days
+ *   previous: '2023-03-01' // date in the past
  * }
+ *
+ * IMPORTANT NOTICE!
+ * Use only the methods of the 'momentjs' to biuld and manipulate the dates.
+ * https://momentjs.com/docs/
  */
 
+const gapInDays = 3;
+
 const buildDateRange = (gap) => {
-  // your solution here, strictly using momentjs
+  // put your code here
 };
 
-module.exports = { buildDateRange };
+module.exports = buildDateRange(gapInDays);

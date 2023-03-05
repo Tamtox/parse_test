@@ -1,5 +1,5 @@
 const { expect, test } = require('@jest/globals');
-const { filterBreadcrumbs } = require('../src/tasks/filter-breadcrumbs');
+const filterBreadcrumbs = require('../src/tasks/filter-breadcrumbs');
 
 const expected = [
   ['Adhesives', 'Putties'],
@@ -9,5 +9,5 @@ const expected = [
 ];
 
 test('filter and sort array of breadcrumbs', () => {
-  expect(filterBreadcrumbs()).toEqual(expected);
+  expect(filterBreadcrumbs).toEqual(expected);
 });
