@@ -27,6 +27,4 @@ const getLastPageNum = (texts) => {
   return result;
 };
 
-console.log(getLastPageNum(paginationText));
-
 module.exports = getLastPageNum(paginationText);

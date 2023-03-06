@@ -31,6 +31,4 @@ const buildDateRange = (gap) => {
   return result;
 };
 
-console.log(buildDateRange(gapInDays));
-
 module.exports = buildDateRange(gapInDays);

@@ -1,4 +1,4 @@
-const _ = require('lodash');
+// const _ = require('lodash');
 const fs = require('fs');
 const cheerio = require('cheerio');
 
@@ -53,34 +53,38 @@ const normalizeText = (str) => {
   if (typeof str !== 'string') return result;
   result = str.replace(/\s/g, ' ');
   result = result.replace(/\\/g, '');
+  result = result.replace(/:/g, ' ');
   result = result.replace(/\s+/g, ' ').trim();
   return result;
 };
 
 const parseTable = ($) => {
-  const result = [];
   const children = $('.Grid').contents();
-  // console.log(children);
-  children.each(function (i, el) {
-    const tagName = $(el).get(0).tagName;
+  const result = children.map((i, el) => {
+    // Get only dt nodes
+    const { tagName } = $(el).get(0);
     if (tagName === 'dt') {
       const obj = {};
       const dtText = normalizeText($(el).text());
+      // Get dd node by moving to next non-undefined node
       const nextEl = el.next.next;
       const ddText = normalizeText($(nextEl).text());
       obj.key = dtText;
+      // Check for PPC-NCC Categories
       if (dtText === 'PPC-NCC Categories') {
-        obj.value = [ddText];
+        const ddStr = $(nextEl).text();
+        const ddStrSplitByNewline = ddStr.split(/\r?\n/);
+        const normalizedArr = ddStrSplitByNewline.map((str) => normalizeText(str));
+        const newVal = normalizedArr.filter((str) => str.length > 0);
+        obj.value = newVal;
       } else {
         obj.value = ddText;
       }
-      console.log(obj);
+      return obj;
     }
-    return $(this).text();
+    return null;
   }).toArray();
   return result;
 };
-
-// console.log(parseTable(nodeTree));
 
 module.exports = parseTable(nodeTree);

@@ -39,6 +39,4 @@ const filterBreadcrumbs = (breadCrumbs) => {
   return result;
 };
 
-console.log(filterBreadcrumbs(breadcrumbs));
-
 module.exports = filterBreadcrumbs(breadcrumbs);

@@ -27,6 +27,4 @@ const normalizeTitle = (str) => {
   return result;
 };
 
-console.log(normalizeTitle(title));
-
 module.exports = normalizeTitle(title);
