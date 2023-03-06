@@ -10,7 +10,6 @@ This project aims to test the knowledge and skill level of the applicant for the
 
 ## How to pass the challenge
 
-- [ ] Fork project to your own Gitlab repository
 - [ ] Clone the project to your local computer
 - [ ] Install the dependencies:
 ```
