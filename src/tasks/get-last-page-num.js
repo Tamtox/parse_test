@@ -12,8 +12,21 @@
 
 const paginationText = ['Zurück', '1', '2', '3', '...', '42', 'Weiter'];
 
+// Returns 0 if not an array or no numbers in array
 const getLastPageNum = (texts) => {
-  // put your code here
+  let result = 0;
+  if (!Array.isArray(texts)) return result;
+  const textLen = texts.length;
+  for (let i = textLen; i >= 0; i -= 1) {
+    const pageNum = Number(texts[i]);
+    if (pageNum) {
+      result = pageNum;
+      break;
+    }
+  }
+  return result;
 };
+
+console.log(getLastPageNum(paginationText));
 
 module.exports = getLastPageNum(paginationText);

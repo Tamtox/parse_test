@@ -16,7 +16,17 @@
 const title = '  \t Treasure  Island\t\n - \n  TI Las Vegas Hotel \\ &  Casino,\n a\t Radisson \\  Hotel\t\n';
 
 const normalizeTitle = (str) => {
-  // put your code here
+  let result = '';
+  if (typeof str !== 'string') return result;
+  // Remove escape sequences
+  result = str.replace(/\s/g, ' ');
+  // Remove backslashes
+  result = result.replace(/\\/g, '');
+  // Remove repeating spaces and trim
+  result = result.replace(/\s+/g, ' ').trim();
+  return result;
 };
+
+console.log(normalizeTitle(title));
 
 module.exports = normalizeTitle(title);

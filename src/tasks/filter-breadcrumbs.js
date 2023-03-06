@@ -1,4 +1,4 @@
-// const _ = require('lodash');
+const _ = require('lodash');
 
 /**
  * The function 'filterBreadcrumbs' takes a single parameter 'breadcrumbs',
@@ -31,7 +31,14 @@ const breadcrumbs = [
 ];
 
 const filterBreadcrumbs = (breadCrumbs) => {
-  // put your code here
+  if (!Array.isArray(breadCrumbs)) return [];
+  const arrStr = breadCrumbs.map((breadCrumb) => breadCrumb.join('__'));
+  const filtered = _.uniq(arrStr);
+  const sorted = filtered.sort();
+  const result = sorted.map((breadCrumb) => breadCrumb.split('__'));
+  return result;
 };
+
+console.log(filterBreadcrumbs(breadcrumbs));
 
 module.exports = filterBreadcrumbs(breadcrumbs);

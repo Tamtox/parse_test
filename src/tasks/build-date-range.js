@@ -22,7 +22,15 @@ const moment = require('moment');
 const gapInDays = 3;
 
 const buildDateRange = (gap) => {
-  // put your code here
+  const result = {};
+  if (Number.isNaN(Number(gap)) || typeof Number(gap) !== 'number') return result;
+  const today = moment().format('YYYY-MM-DD');
+  const previous = moment().subtract(gap, 'days').format('YYYY-MM-DD');
+  result.today = today;
+  result.previous = previous;
+  return result;
 };
+
+console.log(buildDateRange(gapInDays));
 
 module.exports = buildDateRange(gapInDays);

@@ -1,4 +1,4 @@
-// const _ = require('lodash');
+const _ = require('lodash');
 const fs = require('fs');
 const cheerio = require('cheerio');
 
@@ -48,8 +48,39 @@ const nodeTree = cheerio.load(fs.readFileSync('./__fixtures__/table.html', 'utf-
  * https://cheerio.js.org/docs/api/classes/Cheerio#contents
  */
 
-const parseTable = ($) => {
-  // put your code here
+const normalizeText = (str) => {
+  let result = '';
+  if (typeof str !== 'string') return result;
+  result = str.replace(/\s/g, ' ');
+  result = result.replace(/\\/g, '');
+  result = result.replace(/\s+/g, ' ').trim();
+  return result;
 };
+
+const parseTable = ($) => {
+  const result = [];
+  const children = $('.Grid').contents();
+  // console.log(children);
+  children.each(function (i, el) {
+    const tagName = $(el).get(0).tagName;
+    if (tagName === 'dt') {
+      const obj = {};
+      const dtText = normalizeText($(el).text());
+      const nextEl = el.next.next;
+      const ddText = normalizeText($(nextEl).text());
+      obj.key = dtText;
+      if (dtText === 'PPC-NCC Categories') {
+        obj.value = [ddText];
+      } else {
+        obj.value = ddText;
+      }
+      console.log(obj);
+    }
+    return $(this).text();
+  }).toArray();
+  return result;
+};
+
+// console.log(parseTable(nodeTree));
 
 module.exports = parseTable(nodeTree);
